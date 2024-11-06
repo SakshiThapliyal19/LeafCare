@@ -1,71 +1,58 @@
-import React, { useState } from "react";
-import { FiEye, FiEyeOff } from "react-icons/fi"; // Import eye icons
-import Navbar from "../components/Navbar"; // Import Navbar component
+// src/pages/Login.jsx
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import Header from '../components/Header'; // Import Header
 
-const LoginPage = () => {
-  const [showPassword, setShowPassword] = useState(false);
+const Login = () => {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    // Add your login logic here (e.g., API call)
+    alert(`Logged in with Email: ${email}`);
+    navigate('/'); // Redirect to home after login
+  };
 
   return (
-    <div className="min-h-screen bg-cover bg-center relative" style={{ backgroundImage: "url('/main.jpg')", backgroundAttachment: 'fixed' }}>
-      {/* Navbar */}
-      <Navbar />
-
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="absolute inset-0 bg-black opacity-70"></div>
-
-        {/* Login Form */}
-        <div className="relative z-10 p-8 bg-black bg-opacity-60 rounded-lg max-w-md w-full text-white shadow-lg mt-16">
-          <h2 className="text-3xl font-extrabold text-center mb-6">Log In</h2>
-          <form>
-            {/* Email Field */}
-            <div className="mb-4">
-              <label htmlFor="email" className="block text-sm font-semibold mb-2">Email</label>
-              <input
-                type="email"
-                id="email"
-                placeholder="Enter your email"
-                className="w-full px-4 py-2 rounded-md bg-black bg-opacity-80 text-gray-200 border border-gray-700 focus:outline-none focus:border-neutral-300 transition duration-300"
-                required
-              />
-            </div>
-
-            {/* Password Field with Toggle */}
-            <div className="mb-6 relative">
-              <label htmlFor="password" className="block text-sm font-semibold mb-2">Password</label>
-              <input
-                type={showPassword ? "text" : "password"} // Toggle between text and password
-                id="password"
-                placeholder="Enter your password"
-                className="w-full px-4 py-2 rounded-md bg-black bg-opacity-80 text-gray-200 border border-gray-700 focus:outline-none focus:border-neutral-300 transition duration-300"
-                required
-              />
-              <button
-                type="button"
-                onClick={() => setShowPassword(!showPassword)} // Toggle showPassword state
-                className="absolute right-3 top-10 text-gray-400 hover:text-gray-200 transition duration-300"
-              >
-                {showPassword ? <FiEyeOff size={20} /> : <FiEye size={20} />}
-              </button>
-            </div>
-
-            {/* Login Button */}
-            <button
-              type="submit"
-              className="w-full py-3 rounded-md bg-white hover:bg-black hover:text-white transition duration-300 font-bold text-black hover:shadow-lg transform hover:scale-105"
-            >
-              Log In
-            </button>
-
-            {/* Forgot Password and Signup Links */}
-            <div className="mt-6 flex justify-between text-sm">
-              <a href="#" className="text-white hover:underline">Forgot Password?</a>
-              <a href="/register" className="text-white hover:underline">Sign Up</a>
-            </div>
-          </form>
-        </div>
-      </div>
+    <div className="flex flex-col min-h-screen">
+      <Header /> {/* Include Header */}
+      <main className="flex-grow flex items-center justify-center bg-gray-100">
+        <form onSubmit={handleLogin} className="bg-white p-6 rounded-lg shadow-md w-full max-w-sm">
+          <h2 className="text-2xl font-bold text-center mb-4">Log In</h2>
+          <div className="mb-4">
+            <label className="block text-sm font-medium text-gray-700" htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="border border-gray-300 p-2 rounded w-full"
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <label className="block text-sm font-medium text-gray-700" htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="border border-gray-300 p-2 rounded w-full"
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition-colors duration-300 w-full"
+          >
+            Log In
+          </button>
+        </form>
+      </main>
     </div>
   );
 };
 
-export default LoginPage;
+export default Login;
