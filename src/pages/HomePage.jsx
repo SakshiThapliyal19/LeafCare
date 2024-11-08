@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="flex-grow">
+      <main className="flex-grow overflow-x-hidden"> {/* Apply overflow-x-hidden here */}
         <section className="hero-section bg-green-100 h-screen relative flex items-center justify-end pr-16">
           <img
             src="/Leaf3.jpg" 

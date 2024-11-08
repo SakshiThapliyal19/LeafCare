@@ -1,11 +1,9 @@
-// src/components/About.jsx
 import React from 'react';
 
 const About = () => {
   return (
-    <section id="about" className="h-screen w-screen bg-white relative">
-      {/* Center Content positioned at the top */}
-      <div className="absolute top-10 left-1/2 transform -translate-x-1/2 bg-white p-10 rounded-lg shadow-2xl max-w-4xl w-full mt-20">
+    <section id="about" className="min-h-[110vh] w-screen bg-white relative"> 
+      <div className="absolute top-10 left-1/2 transform -translate-x-1/2 bg-white p-10 rounded-lg shadow-2xl max-w-4xl w-full">
         <h2 className="text-4xl font-semibold mb-4 text-green-600">About Us</h2>
         <p className="text-lg text-gray-700 mb-4 leading-relaxed">
           Leaf Care is dedicated to helping gardeners, farmers, and plant enthusiasts monitor
@@ -24,41 +22,37 @@ const About = () => {
         </button>
       </div>
 
-      {/* Images positioned around the main content */}
       <div className="container mx-auto relative flex flex-col items-center text-center">
-        
-        {/* Top Left - Image 1 */}
         <div
           className="absolute left-10 transform hover:scale-105 transition-transform duration-300"
-          style={{ top: '200px' }} // Adjust this value to lower the position
+          style={{ top: '200px' }} 
         >
           <img
-            src="/Leaf1.jpg" // Replace with actual image path in public folder
+            src="/Leaf1.jpg" 
             alt="Leaf Detection"
-            className="rounded-full w-56 h-56 object-cover shadow-lg"
+            className="rounded-full w-64 h-64 object-cover shadow-lg"
           />
         </div>
 
         <div
           className="absolute left-1/2 transform -translate-x-1/2 hover:scale-105 transition-transform duration-300"
-          style={{ bottom: '-800px' }} // Adjust this value to move it lower
+          style={{ bottom: '-750px' }} 
         >
           <img
-            src="/Leaf2.jpg" // Replace with actual image path in public folder
+            src="/Leaf2.jpg" 
             alt="Leaf Detection"
-            className="rounded-full w-56 h-56 object-cover shadow-lg"
+            className="rounded-full w-64 h-64 object-cover shadow-lg"
           />
         </div>
 
-        {/* Top Right - Image 3 */}
         <div
           className="absolute right-10 transform hover:scale-105 transition-transform duration-300"
-          style={{ top: '200px' }} // Adjust this value to lower the position
+          style={{ top: '200px' }} 
         >
           <img
-            src="/Leaf4.jpg" // Replace with actual image path in public folder
+            src="/Leaf4.jpg" 
             alt="Leaf Detection"
-            className="rounded-full w-56 h-56 object-cover shadow-lg"
+            className="rounded-full w-64 h-64 object-cover shadow-lg"
           />
         </div>
       </div>

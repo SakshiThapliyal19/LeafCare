@@ -6,37 +6,40 @@ const Contact = () => {
   console.log("Contact component rendered");
 
   return (
-    <section id="contact" className="h-screen w-screen bg-gradient-to-r from-green-100 to-white flex flex-col items-center justify-center text-center px-4">
+    <section
+      id="contact"
+      className="min-h-screen w-full bg-gradient-to-r from-green-100 to-white flex flex-col items-center justify-center text-center px-4"
+    >
       <h2 className="text-4xl font-extrabold text-green-700 mb-4 shadow-lg tracking-wide">
         Contact Us
       </h2>
-      <p className="text-lg mb-8 text-gray-800 max-w-lg leading-relaxed">
+      <p className="text-lg mb-8 text-gray-800 max-w-lg mx-4 leading-relaxed">
         Email us at <a href="mailto:support@leafcare.com" className="text-green-600 hover:underline">support@leafcare.com</a> for more information, or reach out using the form below.
       </p>
       
-      <form className="flex flex-col items-center space-y-6 bg-white p-10 rounded-lg shadow-2xl w-full max-w-lg">
+      <form className="flex flex-col items-center space-y-6 bg-white p-10 rounded-lg shadow-2xl w-full max-w-lg mx-4">
         <div className="flex items-center w-full">
-          <FaUser className="text-green-500 mr-3 text-xl" /> {/* Increased icon size */}
+          <FaUser className="text-green-500 mr-3 text-xl" />
           <input
             type="text"
             placeholder="Your Name"
-            className="border border-gray-300 p-4 rounded w-full focus:outline-none focus:ring-2 focus:ring-green-500 text-lg" // Increased padding and font size
+            className="border border-gray-300 p-4 rounded w-full focus:outline-none focus:ring-2 focus:ring-green-500 text-lg"
           />
         </div>
         
         <div className="flex items-center w-full">
-          <FaEnvelope className="text-green-500 mr-3 text-xl" /> {/* Increased icon size */}
+          <FaEnvelope className="text-green-500 mr-3 text-xl" />
           <input
             type="email"
             placeholder="Your Email"
-            className="border border-gray-300 p-4 rounded w-full focus:outline-none focus:ring-2 focus:ring-green-500 text-lg" // Increased padding and font size
+            className="border border-gray-300 p-4 rounded w-full focus:outline-none focus:ring-2 focus:ring-green-500 text-lg"
           />
         </div>
         
         <div className="flex items-center w-full">
           <textarea
             placeholder="Your Message"
-            className="border border-gray-300 p-4 rounded w-full h-40 focus:outline-none focus:ring-2 focus:ring-green-500 text-lg" // Increased padding and height
+            className="border border-gray-300 p-4 rounded w-full h-40 focus:outline-none focus:ring-2 focus:ring-green-500 text-lg"
           ></textarea>
         </div>
         
