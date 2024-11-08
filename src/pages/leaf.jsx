@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaArrowLeft, FaPlus } from 'react-icons/fa';
 
@@ -15,7 +15,6 @@ const Analyse = () => {
   };
 
   const handleBack = () => {
-    setImage(null); // Reset the image state when going back
     navigate('/'); // Navigate to home
   };
 
@@ -35,13 +34,13 @@ const Analyse = () => {
       {/* Back Button */}
       <button
         onClick={handleBack} // Use handleBack function
-        className="absolute top-4 left-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 flex items-center z-10"
+        className="fixed top-4 left-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 flex items-center z-20 shadow-lg" // Adjusted to fixed position and high z-index
       >
         <FaArrowLeft className="mr-2" /> Back to Home
       </button>
 
       {/* Upload Image Component */}
-      <div className="flex flex-col items-center justify-center bg-white p-10 rounded-lg shadow-lg w-full max-w-md border-2 border-dashed border-gray-300 cursor-pointer hover:border-green-500 z-10">
+      <div className="flex flex-col items-center justify-center bg-white p-10 rounded-lg shadow-lg w-full max-w-md border-2 border-dashed border-gray-300 cursor-pointer hover:border-green-500 z-10 relative">
         <FaPlus className="text-gray-400 text-4xl mb-4" />
         <p className="text-gray-500 mb-4">Drag and drop an image, or click to select</p>
         <input
@@ -57,11 +56,10 @@ const Analyse = () => {
       {/* Analyze Button */}
       <button 
         onClick={() => {
-          // Implement your analyze functionality here
           alert("Analyzing the leaf..."); // Placeholder action
         }}
         disabled={!image} // Disable if no image is uploaded
-        className={`mt-8 bg-green-500 text-white px-6 py-3 rounded hover:bg-green-600 transition-colors duration-300 ${!image && 'opacity-50 cursor-not-allowed'} z-10`}
+        className={`mt-8 bg-green-500 text-white px-6 py-3 rounded hover:bg-green-600 transition-colors duration-300 ${!image && 'opacity-50 cursor-not-allowed'} z-10 relative`}
       >
         Analyze it
       </button>
