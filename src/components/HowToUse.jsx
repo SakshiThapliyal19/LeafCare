@@ -1,5 +1,6 @@
 import React from 'react';
 import { Upload, Search, AlertCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const HowToUse = () => {
   const steps = [
@@ -33,9 +34,11 @@ const HowToUse = () => {
         </div>
 
         {/* Call to Action Button */}
-        <button className="mt-12 bg-[#1A5319] text-white px-8 py-3 rounded-full hover:bg-[#508D4E] hover:shadow-xl transition duration-300 text-lg font-semibold transform hover:scale-105">
-          Analyze a Leaf
-        </button>
+        <Link to="/result">
+          <button className="mt-12 bg-[#1A5319] text-white px-8 py-3 rounded-full hover:bg-[#508D4E] hover:shadow-xl transition duration-300 text-lg font-semibold transform hover:scale-105">
+            Analyze a Leaf
+          </button>
+        </Link>
       </div>
     </section>
   );
