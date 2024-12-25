@@ -6,7 +6,7 @@ from PIL import Image
 import numpy as np
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for frontend-backend communication
+CORS(app)
 
 # Load your trained model
 model = load_model("CNN_model.keras")
@@ -29,6 +29,18 @@ classes = [
     "Tomato Septoria Leaf Spot", "Tomato Spider Mites (Two-Spotted Spider Mite)", "Tomato Target Spot",
     "Tomato Mosaic Virus", "Tomato Yellow Leaf Curl Virus", "Tomato Healthy"
 ]
+
+# Load curing suggestions from text file
+def load_curing_suggestions():
+    suggestions = {}
+    with open("disease_cures.txt", "r") as file:
+        for line in file:
+            if ": " in line:
+                disease, suggestion = line.strip().split(": ", 1)
+                suggestions[disease] = suggestion
+    return suggestions
+
+curing_suggestions = load_curing_suggestions()
 
 # Define image preprocessing function
 def preprocess_image(image, target_size=(128, 128)):
@@ -53,10 +65,15 @@ def predict():
         predictions = model.predict(processed_image)
         predicted_class = np.argmax(predictions, axis=1)[0]
 
+        # Get curing suggestion for the predicted disease
+        disease_name = classes[predicted_class]
+        suggestion = curing_suggestions.get(disease_name, "No suggestion available.")
+
         # Create response with predicted class and confidence
         result = {
-            "class": classes[predicted_class],
-            "confidence": float(np.max(predictions))
+            "class": disease_name,
+            "confidence": float(np.max(predictions)),
+            "suggestion": suggestion
         }
         return jsonify(result)
 

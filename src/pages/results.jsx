@@ -4,19 +4,19 @@ import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Results = () => {
-  const [language, setLanguage] = useState("en"); // Language state
-  const [result, setResult] = useState(null); // State for backend result
-  const [error, setError] = useState(null); // State for error messages
-  const [image, setImage] = useState(null); // State for selected image (File object)
-  const [imagePreview, setImagePreview] = useState(null); // State for image preview
-  const [analyzing, setAnalyzing] = useState(false); // State to track if analyzing is in progress
+  const [language, setLanguage] = useState("en"); 
+  const [result, setResult] = useState(null); 
+  const [error, setError] = useState(null); 
+  const [image, setImage] = useState(null); 
+  const [imagePreview, setImagePreview] = useState(null); 
+  const [analyzing, setAnalyzing] = useState(false); 
 
   const handleFileChange = (file) => {
     if (file) {
       console.log("File selected:", file);
-      setImage(file); // Save the File object
-      setImagePreview(URL.createObjectURL(file)); // Create preview URL
-      setError(null); // Clear any previous errors
+      setImage(file); 
+      setImagePreview(URL.createObjectURL(file)); 
+      setError(null); 
     } else {
       console.error("No file selected.");
       setError("Please select a valid image file.");
@@ -31,13 +31,13 @@ const Results = () => {
     }
 
     const formData = new FormData();
-    formData.append("file", image); // Append the image file to FormData
+    formData.append("file", image); 
     console.log("Uploading image to the server...");
 
     try {
       setError(null);
-      setResult(null); // Clear previous result
-      setAnalyzing(true); // Indicate analysis in progress
+      setResult(null); 
+      setAnalyzing(true); 
 
       const response = await axios.post("http://127.0.0.1:5000/result", formData, {
         headers: { "Content-Type": "multipart/form-data" },
@@ -167,9 +167,14 @@ const Results = () => {
 
         {/* Leaf Analysis Information */}
         {result && (
-          <p className="text-lg text-green-500 mb-4">
-            Disease Detected: <span className="font-bold">{result.class}</span>
-          </p>
+          <div>
+            <p className="text-lg text-green-500 mb-2">
+              Disease Detected: <span className="font-bold">{result.class}</span>
+            </p>
+            <p className="text-lg text-green-500 mb-2">
+              Suggestion: <span className="font-bold">{result.suggestion}</span>
+            </p>
+          </div>
         )}
 
         {/* Upload Again Button */}
