@@ -26,12 +26,6 @@ const Header = () => {
           <a href="#about" className="hover:font-bold">About</a>
           <a href="#how-to-use" className="hover:font-bold">How to Use</a>
           <a href="#contact" className="hover:font-bold">Contact</a>
-          <Link to="/login" className="bg-white text-green-500 px-3 sm:px-4 py-2 rounded hover:bg-gray-200">
-            Log in
-          </Link>
-          <Link to="/signup" className="bg-white text-green-500 px-3 sm:px-4 py-2 rounded hover:bg-gray-200">
-            Sign up
-          </Link>
         </nav>
 
         {/* Mobile Menu Button */}

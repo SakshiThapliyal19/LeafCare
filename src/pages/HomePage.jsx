@@ -1,4 +1,3 @@
-// src/pages/Home.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
@@ -11,7 +10,7 @@ const Home = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="flex-grow overflow-x-hidden"> {/* Apply overflow-x-hidden here */}
+      <main className="flex-grow overflow-x-hidden"> 
         <section className="hero-section bg-green-100 h-screen relative flex items-center justify-end pr-16">
           <img
             src="/Leaf3.jpg" 
@@ -25,7 +24,7 @@ const Home = () => {
             <p className="text-lg text-black mb-8">
               Our advanced leaf disease detection technology helps you identify various leaf conditions.
             </p>
-            <Link to="/analyse" className="bg-green-500 text-white px-6 py-3 rounded hover:bg-green-600 transition-colors duration-300">
+            <Link to="/result" className="bg-green-500 text-white px-6 py-3 rounded hover:bg-green-600 transition-colors duration-300">
               Analyze a Leaf
             </Link>
           </div>
